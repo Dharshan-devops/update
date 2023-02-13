@@ -1,0 +1,179 @@
+<html>
+    <head>
+        <title>Sakthi Group</title>
+        <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" >
+                    
+                    <div class="sidebar-brand-text mx-3">Sakthi Group</div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <hr class="sidebar-divider">
+                <div class="sidebar-heading">
+                    Menu
+                </div>
+
+                <div ngbDropdown class="nav-item">
+                    <a [routerLink]="['/data']" ngbDropdownToggle class="nav-link collapsed" id="dropdownMenu" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Drawing</span>
+                </a>
+             </div>
+
+             <div ngbDropdown class="nav-item">
+                <a [routerLink]="['/grid']" ngbDropdownToggle class="nav-link collapsed" id="dropdownMenu" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>GRID</span>
+            </a>
+         </div>
+         <div ngbDropdown class="nav-item">
+            <a [routerLink]="['/update']" ngbDropdownToggle class="nav-link collapsed" id="dropdownMenu" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>UPDATE</span>
+           </a>
+         </div>
+
+         <div ngbDropdown class="nav-item">
+         <a [routerLink]="['/upload']" ngbDropdownToggle class="nav-link collapsed" id="dropdownMenu" href="#" data-toggle="collapse" data-target="#collapseTwo"
+          aria-expanded="true" aria-controls="collapseTwo">
+           <i class="fas fa-fw fa-cog"></i>
+           <span>UPLOAD</span>
+         </a>
+         </div>
+
+
+         <hr  class="sidebar-divider d-none d-md-block">
+
+         <div  class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>  
+            </ul>
+
+        
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <ul class="navbar-nav ml-auto">
+                        <div class="topbar-divider d-none d-sm-block">
+
+                        </div>
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Username</span>
+                                <img class="img-profile rounded-circle"
+                                    src="/assets/img/images.png">
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+                <div class="container-fluid">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Get Data</h1>
+                    </div>
+
+                    <div class="card" style="width: 18rem;">
+                        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                        <div class="card-body">
+                            <form action="">
+                                <div class="input-group mb-3">
+                                    <input [(ngModel)]="data.drawingnumber" type="text" name="drawingnumber" class="form-control" placeholder="Enter Drawing Number" required>
+
+                                    <button  (click)="get()" class="btn btn-outline-primary" type="button" id="button-addon2">Get</button>
+                                </div>
+                            </form>
+
+                          
+                        </div>
+                      </div>
+                      
+
+                    
+                    <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>index</th>
+                                    <th>Drawingnumber</th>
+                                    <th>Component Name</th>
+                                    <th>partname</th>
+                                    <th>Material</th>
+                                    <th>sequencename</th>
+                                    <th>opn</th>
+                                    <th>Bar</th>
+                                    <th>Insert Spec</th>
+                                    <th>noofedge</th>
+                                    <th>EdgeLife</th>
+                                    <th>Make</th>
+                                    <th>supplier</th>
+                                    <th>rate</th>
+                                    <th>InsertLife</th>
+                                    <th>AlternateInsert</th>
+                                    <th>noofedgeforalternative</th>
+ 
+                                    
+                                </tr>
+
+                                        <tr *ngFor="let dat of datas;let i=index">
+                                            <td>{{i}}</td>
+                                            <td>{{dat.drawingnumber}}</td>
+                                            <td>{{dat.componentname}}</td>
+                                            <td>{{dat.partname}}</td>
+                                            <td>{{dat.material}}</td>
+                                            <td>{{dat.sequencename}}</td>
+                                            <td>{{dat.opn}}</td>
+                                            <td>{{dat.bar}}</td>
+                                            <td>{{dat.insertspec}}</td>
+                                            <td>{{dat.noofedge}}</td>
+                                            <td>{{dat.edgelife}}</td>
+                                            <td>{{dat.make}}</td>
+                                            <td>{{dat.supplier}}</td>
+                                            <td>{{dat.rate}}</td>
+                                            <td>{{dat.insertlife}}</td>
+                                            <td>{{dat.alternateinsert}}</td>                                            
+                                            <td>{{dat.noofedgeforalternative}}</td>
+                                            <!-- <td><a routerLink="/update/{{i}">update</a></td>
+                                            <button type="button" class="btn btn-primary">Update</button> -->
+                                        </tr>
+                                        
+                                
+                            </table>
+                           
+                        </div>
+                    </div>
+                                       
+                </div>
+
+                
+
+            </div>
+            
+
+       
+        </div>    
+        
+<!-- <div *ngFor="let dat of datas | keyvalue">
+    {{dat.key}}:{{dat.value}} -->
+<!-- </div> -->
+
+
+<!-- table -->
